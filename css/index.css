@@ -1,0 +1,738 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+/*--Scroll-Bar
+---------------------------*/
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #112120;
+  }
+
+/*--Global Styling
+---------------------------*/
+.container {
+    margin: 0 5%;
+}
+
+button {
+    outline: none;
+}
+
+.main-btn {
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: .2s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.main-btn:hover {
+    color: white;
+    background-color: #333;
+}
+
+.main-btn--dark {
+    color: white;
+    background-color: #333;
+}
+
+.main-btn--dark:hover {
+    color: #333;
+    background-color: white;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*--Header Section
+---------------------------*/
+header {
+    display: flex;
+    height: 100%;
+}
+
+header nav.main-menu {
+    position: absolute;
+    width: 100%;
+    padding: 0 !important;
+    height: 100%;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    z-index: 2 !important;
+    justify-content: center !important;
+    background-color: white;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.active-menu nav.main-menu {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+header nav.main-menu a {
+    margin: 10px 0;
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-family: 'Secular One', sans-serif;
+    transition: .3s ease;
+}
+
+header nav.main-menu a:hover {
+    color: black;
+}
+
+header nav.main-menu .social {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+header nav.main-menu .social a {
+    margin: 0 5px;
+    color: rgba(0, 0, 0, .4);
+}
+
+header nav.main-menu .social a:hover {
+    color: rgba(0, 0, 0, .8);
+
+}
+
+.header__txt,
+.header__slider {
+    flex: 1;
+}
+
+.header__txt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+.header__txt h1,
+.header__txt p,
+.header__txt .main-btn {
+    margin: 5px 0 5px 5vw;
+}
+
+.header__txt h1.slogan {
+    font-family: 'Secular One', sans-serif;
+    font-size: 60px;
+    line-height: 62px;
+    letter-spacing: 7px;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, .1);
+    color: #333;
+}
+
+.header__txt p {
+    max-width: 70%;
+    font-family: sans-serif;
+    color: #666;
+    line-height: 1.4em;
+    padding: 10px 0 15px;
+    letter-spacing: 1.2px;
+}
+
+.header__txt nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    margin-left: 0;
+    padding: 20px 0;
+    align-items: center;
+    display: flex;
+    z-index: 3;
+    justify-content: space-between;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.header__txt nav .menu-btn {
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    color: #333;
+    font-size: 20px;
+    border-radius: 20px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.header__txt nav .menu-btn .fa-times {
+    display: none
+}
+
+.header__txt nav .menu-btn .fa-bars {
+    display: block;
+}
+
+.header__txt.active-menu nav .menu-btn .fa-bars {
+    display: none;
+}
+
+.header__txt.active-menu nav .menu-btn .fa-times {
+    display: block;
+}
+
+.header__txt nav .menu-btn:hover {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .1);
+}
+
+/*Slider
+-------------*/
+
+.header__slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.header__slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+    transition: .4s ease-out;
+}
+
+.header__slider .slide.active {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+
+.header__slider .slide-one {
+    background-image: url('../images/bg1.jpg');
+}
+
+.header__slider .slide-two {
+    background-image: url('../images/bg2.jpg');
+
+}
+
+.header__slider .slide-three {
+    background-image: url('../images/bg3.jpg');
+    background-position: bottom center;
+}
+
+.header__slider .slider-btns {
+    position: absolute;
+    z-index: 4;
+    bottom: 30px;
+    right: 40px;
+}
+
+.header__slider .slider-btns .slide-btn {
+    border: solid 2px white;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: .2s ease-in;
+    ;
+}
+
+.header__slider .slider-btns .slide-btn:hover {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.header__slider .slider-btns .slide-btn.active {
+    background-color: white;
+    pointer-events: none;
+}
+
+
+/*--Trips
+---------------------------*/
+.trips {
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    align-items: center;
+}
+
+.trips__heading {
+    flex-basis: 30vw;
+}
+
+.trips__heading h2 {
+    font-size: 53px;
+    line-height: 55px;
+    letter-spacing: 4px;
+    font-family: 'Secular One', sans-serif;
+    margin: 4px 0;
+    text-transform: uppercase;
+
+}
+
+.trips__heading h4 {
+    font-size: 10px;
+    font-family: serif;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.trips__heading p {
+    color: #666;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    padding-right: 20px;
+    line-height: 1.4em;
+    font-size: 15px;
+}
+
+.trips-carousel {
+    width: 60vw !important;
+}
+
+.trip-card {
+    height: 400px;
+    background-color: #666;
+    cursor: pointer;
+    overflow: visible !important;
+    position: relative;
+}
+
+.trip-card-desc {
+    background-color: rgba(0, 0, 0, .5);
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding: 10px 0;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: .4s ease-in-out;
+}
+
+.trip-card:hover .trip-card-desc {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.trip-card-desc h4 {
+    margin: 7px 0 4px;
+    color: rgb(238, 238, 238);
+    letter-spacing: 1.4px;
+
+}
+
+.trip-card-desc h3 {
+    margin: 5px 0 6px;
+    color: white;
+    letter-spacing: 1.2px;
+}
+
+.trip-card-desc h5 {
+    margin: 4px 0;
+    color: rgb(216, 216, 216);
+    letter-spacing: 1.1px;
+}
+
+.trip-card-desc hr {
+    border: none;
+    border-top: 1px solid #888;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.trip-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*--categories
+---------------------------*/
+.categories {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.categories h2 {
+    font-size: 33px;
+    line-height: 35px;
+    letter-spacing: 4px;
+    font-family: 'Secular One', sans-serif;
+    margin: 4px 0;
+    text-transform: uppercase;
+}
+
+.categories p {
+    color: #666;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    line-height: 1.4em;
+    font-size: 15px;
+    max-width: 800px;
+    margin: 12px auto 25px;
+    display: inline-block;
+}
+
+.categories button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.categories-card {
+    height: 500px;
+    cursor: pointer;
+    position: relative;
+}
+
+.categories-card-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: start;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.categories-card-desc h3 {
+    color: white;
+    font-size: 25px;
+    text-align: left;
+    margin: 15px 0 10px;
+}
+
+.categories-card-desc p {
+    color: #fdfdfd;
+    font-size: 11px;
+    margin: 0 0 15px;
+    max-height: 0px;
+    transition: .3s ease-in-out;
+    overflow: hidden;
+    opacity: 0;
+
+}
+
+.categories-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.categories-card:hover .categories-card-desc p {
+    opacity: 1;
+    transition: 1s ease;
+    max-height: 40px;
+}
+
+
+
+/*--Tours Section
+---------------------------*/
+.tours {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.tours h2 {
+    font-size: 33px;
+    line-height: 35px;
+    letter-spacing: 4px;
+    font-family: 'Secular One', sans-serif;
+    margin: 4px 0;
+    text-transform: uppercase;
+}
+.tours p {
+    color: #666;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    line-height: 1.4em;
+    font-size: 15px;
+    max-width: 85%;
+    margin: 12px auto 25px;
+    display: inline-block;
+}
+.tours-feat{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.tours-feat-card{
+    flex: 1;
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+.tours-feat-card img{
+    width: 80px;
+    opacity: .7;
+    margin-bottom: 10px;
+}
+.tours-feat-card h3{
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    margin: 8px 0 2px;
+}
+.tours-feat-card p{
+    padding: 0;
+}
+
+/*--About Section
+---------------------------*/
+.about{
+    padding: 50px 0;
+    padding-left: 5%;
+    width: 70%;
+    background-image: url('../images/a1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 25px 25px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
+    color: white;
+    margin-bottom: -70px;
+    z-index: 3;
+}
+.about::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 1;
+}
+.about * {
+    position: relative;
+    z-index: 2;
+}
+.about h2{
+    font-size: 3em;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 5px;
+}
+.about p{
+    width: 80%;
+    font-family: sans-serif;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, .8);
+    line-height: 1.4em;
+    margin: 0 0 20px;
+}
+
+.about button{
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+    font-size: 18px;
+    padding: 5px 25px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: .3s ease;
+    font-weight: bold;
+}
+.about button:hover{
+    background-color: white;
+    color: black;
+}
+
+
+/*--newsletter 
+---------------------------*/
+
+.newsletter{
+    padding: 120 0 50px;
+    text-align: center;
+    background-color: #F4F4F4;
+    clip-path: polygon(0 70px, 100% 0, 100% 100%, 0% 100%);
+    font-family: 'Oswald', sans-serif;
+}
+.newsletter h3{
+    font-size: 1.5em;
+    margin: 0 0 15px;
+    color: #2A2B2A;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+.newsletter p{
+    color: gray;
+    max-width: 700px;
+    margin: auto;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+}
+.newsletter form{
+    max-width: 300px; 
+    margin: 25 auto 0;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 8px 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+.newsletter form input[type='text']{
+    text-align: center;
+    color: grey;
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.newsletter form button{
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: gray;
+    transition: .2s ease;
+}
+.newsletter form button:hover{
+    color: black;
+}
+/*--footer
+---------------------------*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+footer .social a{
+    color: gray;
+    margin-right: 10px;
+    min-width: 250px;
+}
+footer p{
+    color: gray;
+}
+
+
+/*--Responsive
+---------------------------*/
+@media (max-width:768px) {
+
+    /*--Header
+    ---------------------------*/
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .header__txt {
+        min-height: 600px;
+        flex: 2;
+    }
+
+    .header__txt h1.slogan {
+        font-size: 40px;
+        line-height: 42px;
+    }
+
+    .header__slider {
+        flex: 1;
+        min-height: 400px;
+
+    }
+
+    /*--Trips
+    ---------------------------*/
+    .trips {
+        flex-direction: column;
+    }
+
+    .trips__heading {
+        margin-bottom: 30px;
+    }
+
+    .trips__heading h2 {
+        font-size: 40px;
+        line-height: 42px;
+    }
+
+    .trips-carousel {
+        width: 90vw !important;
+    }
+
+    .trip-card .trip-card-desc {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    /*--categories
+    ---------------------------*/
+    .categories h2 {
+        font-size: 23px;
+        line-height: 25px;
+    }
+     /*--about
+    ---------------------------*/
+    .about{
+        width: auto;
+        border-radius: 0;
+        padding-right: 5%;
+        margin-bottom: 0;
+    }
+    .about h2{
+        font-size: 24px;
+    }
+    .about p{
+        width: auto;
+    }
+
+
+     /*--newsletter
+    ---------------------------*/
+    .newsletter{
+        padding: 70px 5%; 
+        clip-path: none;
+    }
+}
